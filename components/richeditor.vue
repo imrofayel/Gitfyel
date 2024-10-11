@@ -32,10 +32,16 @@
 
       <button @click="exportMarkdown">
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
+        <div class="flex p-2 space-x-1 px-3 text-[16px] bg-black rounded-full text-white">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
           <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
             d="M12 5v14m7-7l-7 7l-7-7" />
         </svg>
+
+        <span>Download</span>
+
+        </div>
 
       </button>
 
@@ -552,20 +558,3 @@ ul[data-type="taskList"] label>div {
   background-color: rgba(13, 255, 0, 0.5);
 }
 </style>
-
-
-/* <!-- ![](https://img.shields.io/badge/App%20Stores-8A2BE2)
-
-- [App Stores](#-app-stores) — [Artificial Intelligence](#-artificial-intelligence) — [Blog](#%EF%B8%8F-blog) — [Browsers](#-browsers) — [CI](#-ci) — [Cloud Storage](#%EF%B8%8F-cloud-storage) — [Cloud Systems](#%EF%B8%8F-cloud-systems) — [Code Coverage](#-code-coverage) — [Collaboration Tools](#-collaboration-tools) — [Cryptocurrencies](#-cryptocurrencies) — [Databases](#%EF%B8%8F-databases) — [Delivery](#%EF%B8%8F-delivery) — [Design](#-design) — [Documentation](#-documentation) — [Education](#-education) — [Funding](#-funding) — [Frameworks](#%EF%B8%8F-frameworks) — [Game Engines](#%EF%B8%8F-game-engines) — [Gaming Storefronts](#-gaming-storefronts) — [IDE/Code Editors](#-idecode-editors) — [Operating Systems](#%EF%B8%8F-operating-systems) — [Package Managers](#-package-managers) — [Payment](#-payment)
-* [Programming Languages](#-programming-languages)
-* [Review](#-review)
-* [Search Engines](#-search-engines)
-* [Social Medias](#-social-medias)
-* [Sound](#-sound)
-* [Static Site](#-static-site)
-* [Streaming](#-streaming)
-* [Terminals](#-terminals)
-* [Version Control](#-version-control)
-* [Virtual Reality](#%EF%B8%8F-virtual-reality)
-* [Work/Jobs](#-work-and-jobs)
-* [Website Status](#-website-status) --> */
