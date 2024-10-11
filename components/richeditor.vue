@@ -30,21 +30,21 @@
 
     <div class="flex space-x-2">
 
-      <button @click="exportMarkdown">
+      <button @click="exportMarkdown" class="relative">
+            <div class="bg-black text-white rounded-full px-3 py-1.5 flex items-center space-x-2 transition-transform duration-100 active:scale-95">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></g></svg>
+              <span>Save</span>
+            </div>
+            <span class="absolute inset-0 bg-white opacity-25 rounded-full transform scale-0 transition-transform duration-300 ease-out" :class="{ 'animate-ping': isAnimating }"></span>
+          </button>
 
-        <div class="flex p-2 space-x-1 px-3 text-[16px] bg-black rounded-full text-white">
-
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
-          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M12 5v14m7-7l-7 7l-7-7" />
-        </svg>
-
-        <span>Download</span>
-
-        </div>
-
-      </button>
-
+          <button @click="copyToClipboard" class="relative">
+            <div class="bg-black text-white rounded-full px-3 py-1.5 flex items-center space-x-2 transition-transform duration-100 active:scale-95">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></g></svg>
+              <span>Copy</span>
+            </div>
+            <span class="absolute inset-0 bg-white opacity-25 rounded-full transform scale-0 transition-transform duration-300 ease-out" :class="{ 'animate-ping': isAnimating }"></span>
+          </button>
     </div>
 
   </div>
@@ -79,6 +79,93 @@
     </bubble-menu>
 
     <EditorContent :editor="editor as any" class="overflow-auto px-4 relative -top-4" />
+
+<div
+        class="bg-[#f9fafb] border-t dark:border-none dark:bg-[#2d3d33] p-1.5 px-3 flex justify-between items-center fixed bottom-0 w-full select-none"
+        v-if="editor">
+        <div class="flex space-x-4">
+
+          <div class="flex space-x-4" v-if="!editor.can().deleteTable()">
+
+            <div @click="editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()"
+              class="bg-white/80 dark:text-white/90 hover:dark:bg-[#1f2b24] dark:bg-[#1f2920] dark:border-transparent backdrop-blur-lg border border-gray-100 flex px-3 p-1 rounded-2xl justify-center items-center text-black cursor-pointer">
+              Insert Table
+            </div>
+
+          </div>
+
+          <!-- Row Manipulation -->
+
+          <div class="flex space-x-2" v-if="editor.can().deleteTable()">
+
+            <div
+              class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center dark:text-white/90 border-gray-100 border text-black cursor-pointer space-x-2">
+
+              <button @click="editor.chain().focus().deleteRow().run()" :disabled="!editor.can().deleteRow()">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" class="text-red-600">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M5 12h14" />
+                </svg>
+
+              </button>
+
+              <span class="inline">Row</span>
+
+              <button @click="editor.chain().focus().addRowAfter().run()" :disabled="!editor.can().addRowAfter()">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M5 12h14m-7-7v14" />
+                </svg>
+
+              </button>
+
+            </div>
+
+            <!-- Column Manipulation -->
+
+            <div class="flex space-x-2" v-if="editor.can().deleteTable()">
+
+              <div
+                class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center border-gray-100 border dark:text-white/90 text-black cursor-pointer space-x-2">
+
+                <button @click="editor.chain().focus().deleteColumn().run()" :disabled="!editor.can().deleteColumn()">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" class="text-red-600">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="M5 12h14" />
+                  </svg>
+
+                </button>
+
+                <span class="inline">Column</span>
+
+
+                <button @click="editor.chain().focus().addColumnAfter().run()"
+                  :disabled="!editor.can().addColumnAfter()">
+
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="2" d="M5 12h14m-7-7v14" />
+                  </svg>
+
+                </button>
+
+              </div>
+            </div>
+
+            <div @click="editor.chain().focus().toggleHeaderCell().run()" :disabled="!editor.can().toggleHeaderCell()"
+              class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center dark:text-white/90 border-gray-100 border text-black cursor-pointer space-x-2">
+              Header Cell</div>
+
+            <div @click="editor.chain().focus().deleteTable().run()"
+              class="text-base hover:bg-[#a61111] bg-[#b91010] dark:hover:bg-[#c10c0cd0] dark:bg-[#860d0dcd] dark:border-transparent border-gray-100 border backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center text-white cursor-pointer">
+              Delete</div>
+
+          </div>
+
+        </div></div>
 
   </div>
 
@@ -201,6 +288,19 @@ const exportMarkdown = () => {
     URL.revokeObjectURL(url);
   } else { }
 };
+
+const copyToClipboard = () => {
+  if (editor.value) {
+    const markdownContent = editor.value.storage.markdown.getMarkdown();
+    navigator.clipboard.writeText(markdownContent)
+      .then(() => {
+      })
+      .catch((err) => {
+        console.error('Failed to copy content: ', err);
+      });
+  }
+};
+
 
 </script>
 
