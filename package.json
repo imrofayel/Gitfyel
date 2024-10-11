@@ -1,0 +1,47 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.2",
+    "@tiptap/core": "^2.8.0",
+    "@tiptap/extension-bubble-menu": "^2.8.0",
+    "@tiptap/extension-code-block": "^2.8.0",
+    "@tiptap/extension-code-block-lowlight": "^2.8.0",
+    "@tiptap/extension-image": "^2.8.0",
+    "@tiptap/extension-link": "^2.8.0",
+    "@tiptap/extension-list-item": "^2.8.0",
+    "@tiptap/extension-mention": "^2.8.0",
+    "@tiptap/extension-subscript": "^2.8.0",
+    "@tiptap/extension-superscript": "^2.8.0",
+    "@tiptap/extension-table": "^2.8.0",
+    "@tiptap/extension-table-cell": "^2.8.0",
+    "@tiptap/extension-table-header": "^2.8.0",
+    "@tiptap/extension-table-row": "^2.8.0",
+    "@tiptap/extension-text-align": "^2.8.0",
+    "@tiptap/pm": "^2.8.0",
+    "@tiptap/starter-kit": "^2.8.0",
+    "@tiptap/vue-3": "^2.8.0",
+    "lowlight": "^3.1.0",
+    "nuxt": "^3.13.0",
+    "tiptap-extension-resize-image": "^1.1.9",
+    "tiptap-markdown": "^0.8.10",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "^1.2.8",
+    "@nuxt/ui": "^2.18.7",
+    "@pinia/nuxt": "^0.5.5",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13"
+  }
+}
