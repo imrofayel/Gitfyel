@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
     "@nuxt/content": "^2.13.2",
     "@tiptap/core": "^2.8.0",
     "@tiptap/extension-bubble-menu": "^2.8.0",

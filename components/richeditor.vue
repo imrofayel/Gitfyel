@@ -86,7 +86,7 @@
           <div class="flex space-x-4" v-if="!editor.can().deleteTable()">
 
             <div @click="editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()"
-              class="bg-white/80 dark:text-white/90 hover:dark:bg-[#1f2b24] dark:bg-[#1f2920] dark:border-transparent backdrop-blur-lg border border-gray-100 flex px-3 p-1 rounded-2xl justify-center items-center text-black cursor-pointer">
+              class="bg-white/80 dark:text-white/90 hover:dark:bg-[#1f2b24] dark:bg-[#1f2920] dark:border-transparent backdrop-blur-lg border border-gray-200 flex px-3 p-1 rounded-2xl justify-center items-center text-black cursor-pointer">
               Insert Table
             </div>
 

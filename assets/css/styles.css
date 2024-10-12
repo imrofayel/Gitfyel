@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
 .inter {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
   }
 
-/* body {
-    background-color: #f6f6f8;
-} */
 
+  .roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+  }
+  
 *{
     font-family: 'Inter';
 }
