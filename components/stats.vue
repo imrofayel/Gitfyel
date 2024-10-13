@@ -59,7 +59,7 @@
 
       <Menu as="div" class="text-left">
         <MenuButton
-          class="bg-[#1e1f22] text-white rounded-2xl px-2.5 py-1 flex items-center transition-transform duration-100 active:scale-952"
+          class="bg-[#1e1f22] text-white rounded-full px-2.5 py-1 flex items-center transition-transform duration-100 active:scale-952"
         >
           <span class="roboto-mono px-1.5 py-1 outline-none focus:ring-0 text-base">{{ selectedTheme || 'Select Theme' }}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24" class="items-center flex justify-center">
