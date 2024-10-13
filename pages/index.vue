@@ -1,12 +1,10 @@
 <template>
-  <div class="flex flex-col items-center">
-
-    <!-- Headline Section -->
+  <div class="flex flex-col items-center text-[#1e1f22]">
 
     <div
-      class="space-y-6 w-full p-8 flex flex-col items-center pt-12">
+      class="space-y-6 w-full p-8 flex flex-col">
 
-      <div class="text-5xl px-4 relative">
+      <div class="text-3xl px-4 relative">
         GitHub Profile Readme Generator
       </div>
 
