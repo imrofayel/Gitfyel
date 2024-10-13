@@ -12,7 +12,7 @@
             id="borders"
             type="checkbox"
             v-model="showBorders"
-            class="peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-black before:opacity-0 before:transition-opacity checked:border-black checked:bg-black checked:before:bg-black hover:before:opacity-10"
+            class="peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-[#1e1f22] before:opacity-0 before:transition-opacity checked:border-[#1e1f22] checked:bg-[#1e1f22] checked:before:bg-[#1e1f22] hover:before:opacity-10"
           />
           <span class="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
             <svg
@@ -31,7 +31,7 @@
             </svg>
           </span>
         </label>
-        <label class="cursor-pointer text-black" for="borders">
+        <label class="cursor-pointer" for="borders">
           Borders
         </label>
       </div>
@@ -39,7 +39,7 @@
       <div class="inline-flex items-center ml-3.5">
         <label class="flex items-center cursor-pointer relative" for="privateCommits">
           <input type="checkbox"
-            class="peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-black before:opacity-0 before:transition-opacity checked:border-black checked:bg-black checked:before:bg-black hover:before:opacity-10"
+            class="peer relative h-5 w-5 cursor-pointer appearance-none rounded-full border shadow hover:shadow-md transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-[#1e1f22] before:opacity-0 before:transition-opacity checked:border-[#1e1f22] checked:bg-[#1e1f22] checked:before:bg-[#1e1f22] hover:before:opacity-10"
             id="privateCommits"
             v-model="showPrivateCommits"
           />
@@ -52,16 +52,16 @@
             </svg>
           </span>
         </label>
-        <label class="cursor-pointer ml-3 text-black" for="privateCommits">
+        <label class="cursor-pointer ml-3" for="privateCommits">
           Private Commits
         </label>
       </div></div>
 
       <Menu as="div" class="text-left">
         <MenuButton
-          class="inline-flex items-center bg-black text-white border rounded-2xl overflow-hidden space-x-2 px-2"
+          class="bg-[#1e1f22] text-white rounded-full px-2.5 py-1 flex items-center transition-transform duration-100 active:scale-952"
         >
-          <span class="roboto-mono px-3 p-2 outline-none focus:ring-0 text-base">{{ selectedTheme || 'Select Theme' }}</span>
+          <span class="roboto-mono px-1.5 py-1 outline-none focus:ring-0 text-base">{{ selectedTheme || 'Select Theme' }}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24" class="items-center flex justify-center">
             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
               stroke-width="2" d="m6 9l6 6l6-6" />

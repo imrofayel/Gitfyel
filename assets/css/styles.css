@@ -12,8 +12,17 @@
   .roboto-mono {
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
+    
+  }
+
+  .roboto-mono::placeholder {
+    font-family: 'Roboto Mono', monospace;
   }
   
+body {
+  background-color: #fafafa;
+}
+
 *{
     font-family: 'Inter';
 }

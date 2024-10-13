@@ -22,9 +22,4 @@ onMounted(() => {
 </script>
 
 <style>
-
-body {
-  background-color: white;
-}
-
 </style>
