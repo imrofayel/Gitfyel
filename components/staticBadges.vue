@@ -13,7 +13,7 @@
 
         <div v-for="(badge, badgeKey) in badgeGroup.items" :key="badgeKey">
           <button @click="addImage(badge.link)">
-            <img :src="badge.link" :alt="badge.alt" class="scale-105 py-1 pr-4" />
+            <img :src="badge.link" :alt="badge.alt" class="py-1 pr-4" />
           </button>
         </div>
       </div>
