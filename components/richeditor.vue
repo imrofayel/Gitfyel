@@ -31,7 +31,7 @@
     <div class="flex space-x-2">
 
       <button @click="exportMarkdown" class="relative">
-            <div class="bg-[#1e1f22] text-white rounded-2xl px-2 pr-2.5 py-1 flex items-center space-x-1 transition-transform duration-100 active:scale-95">
+            <div class="bg-[#1e1f22] text-white rounded-2xl px-2.5 py-1 flex items-center transition-transform duration-100 active:scale-95 space-x-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7l-7 7l-7-7"/></svg>
               <span>Save</span>
             </div>
@@ -62,13 +62,14 @@
       <div class="flex">
 
         <Menu :editor="editor as any" :bubble="true" />
+
       </div>
 
     </div>
 
     <bubble-menu :editor="editor as Editor" :tippy-options="{ duration: 100 }" v-if="editor">
 
-      <div class="flex overflow-hidden dark:border-none bg-gray-50 border backdrop-blur-xl rounded-xl">
+      <div class="flex overflow-hidden dark:border-none bg-[#fbfbfb] border backdrop-blur-xl rounded-xl">
 
         <Menu :editor="editor as any" :bubble="false" />
 
@@ -78,14 +79,14 @@
     <EditorContent :editor="editor as any" class="overflow-auto px-4 relative -top-4" />
 
 <div
-        class="bg-[#f9fafb] border-t dark:border-none dark:bg-[#2d3d33] p-1.5 px-3 flex justify-between items-center fixed bottom-0 w-full select-none"
+        class="bg-[#fbfbfb] border-t dark:border-none dark:bg-[#2d3d33] p-1.5 px-3 flex justify-between items-center fixed bottom-0 w-full select-none"
         v-if="editor">
         <div class="flex space-x-4">
 
           <div class="flex space-x-4" v-if="!editor.can().deleteTable()">
 
             <div @click="editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()"
-              class="bg-white/80 dark:text-white/90 hover:dark:bg-[#1f2b24] dark:bg-[#1f2920] dark:border-transparent backdrop-blur-lg border border-gray-200 flex px-3 p-1 rounded-2xl justify-center items-center text-black cursor-pointer">
+              class="bg-white/80 dark:text-white/90 hover:dark:bg-[#1f2b24] dark:bg-[#1f2920] dark:border-transparent backdrop-blur-lg border border-gray-200 flex px-3 p-1 rounded-2xl justify-center items-center cursor-pointer">
               Insert Table
             </div>
 
@@ -96,7 +97,7 @@
           <div class="flex space-x-2" v-if="editor.can().deleteTable()">
 
             <div
-              class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center dark:text-white/90 border-gray-100 border text-black cursor-pointer space-x-2">
+              class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center dark:text-white/90 border-gray-100 border cursor-pointer space-x-2">
 
               <button @click="editor.chain().focus().deleteRow().run()" :disabled="!editor.can().deleteRow()">
 
@@ -125,7 +126,7 @@
             <div class="flex space-x-2" v-if="editor.can().deleteTable()">
 
               <div
-                class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center border-gray-100 border dark:text-white/90 text-black cursor-pointer space-x-2">
+                class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center border-gray-100 border dark:text-white/90 cursor-pointer space-x-2">
 
                 <button @click="editor.chain().focus().deleteColumn().run()" :disabled="!editor.can().deleteColumn()">
 
