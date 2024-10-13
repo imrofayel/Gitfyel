@@ -3,10 +3,10 @@
   <div class="w-[80%] flex justify-between">
 
     <div>
-      <div class="inline-flex items-center bg-white border border-gray-200 border-opacity-50 rounded-2xl overflow-hidden">
+      <div class="inline-flex items-center bg-white border border-gray-200 border-opacity-50 rounded-2xl overflow-hidden roboto-mono">
         <template v-if="isEditing">
           <input v-model="editedUsername" @keyup.enter="saveUsername" type="text"
-            class="px-3 p-1 bg-white outline-none w-[150px] focus:ring-0 text-base" placeholder=""
+            class="px-3 p-1 roboto-mono bg-white outline-none w-[150px] focus:ring-0 text-base" placeholder=""
             ref="usernameInput">
           <button @click="saveUsername" class="p-1 px-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" class="text-[#1e1f22]">
@@ -16,7 +16,7 @@
           </button>
         </template>
         <template v-else>
-          <span class="px-3 py-1 text-base select-none">{{ username || 'GitHub' }}</span>
+          <span class="roboto-mono px-3 py-1 text-base select-none">{{ username || 'GitHub' }}</span>
           <button @click="startEditing" class="p-1 px-2 text-[#1e1f22]">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil">
