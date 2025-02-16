@@ -52,7 +52,7 @@ async function analyzeProfile() {
     // Add two newlines and the analysis to the editor
     if (props.editor) {
       const currentContent = props.editor.getHTML();
-      props.editor.commands.setContent(currentContent + '\n\n' + response.analysis);
+      props.editor.commands.setContent(currentContent + '\n\n' + response.readme);
     }
   } catch (e: any) {
     console.error('Analysis error:', e);
