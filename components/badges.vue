@@ -111,33 +111,6 @@ const computedBadges = computed(() => ({
 
 }));
 
-const viewsBadge  = computed(() => ({
-  views0: {
-    link: `https://visitcount.itsvg.in/api?id=${userName}&label=Profile%20Views&color=0&icon=1&pretty=true`,
-    alt: 'GitHub Views',
-    onClick: () => {
-      addImage(`https://visitcount.itsvg.in/api?id=${userName}&label=Profile%20Views&color=0&icon=1&pretty=true`);
-    },
-  },
-
-  views1: {
-    link: `https://visitcount.itsvg.in/api?id=${userName}&label=Profile%20Views&color=2&icon=3&pretty=true`,
-    alt: 'GitHub Views',
-    onClick: () => {
-      addImage(`https://visitcount.itsvg.in/api?id=${userName}&label=Profile%20Views&color=2&icon=3&pretty=true`);
-    },
-  },
-
-  views2: {
-    link: `https://visitcount.itsvg.in/api?id=${userName}&label=Profile%20Views&color=8&icon=5&pretty=true`,
-    alt: 'GitHub Views',
-    onClick: () => {
-      addImage(`https://visitcount.itsvg.in/api?id=${userName}&label=Profile%20Views&color=8&icon=5&pretty=true`);
-    },
-  },
-
-}));
-
 </script>
 
 <style>
