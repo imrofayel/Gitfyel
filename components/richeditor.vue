@@ -58,7 +58,10 @@
           <span>Copy</span>
         </div>
       </button>
+
     </div>
+
+    <MagicAI :editor="editor as Editor" />
 
   </div>
 
@@ -234,7 +237,7 @@ onMounted(() => {
 
     editorProps: {
       attributes: {
-        class: 'leading-loose text-[19px] min-h-[150px] w-full h-full overflow-auto border-none bg-transparent placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        class: 'leading-loose text-[20px] tracking-normal min-h-[150px] w-full h-full overflow-auto border-none bg-transparent placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
       },
     },
     extensions: [

@@ -21,4 +21,5 @@
 
 * {
     font-family: 'Geist';
+    @apply tracking-tight
 }
