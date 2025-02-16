@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col rounded-xl pt-4">
+  <div class="flex flex-col text-lg rounded-xl pt-4">
 
     <div class="flex justify-between py-3 items-center">
       <div><div class="inline-flex items-center">
@@ -173,6 +173,7 @@ const computedStats = computed<ComputedStats>(() => {
         addImage(`https://github-readme-streak-stats.herokuapp.com/?user=${userName.value}&theme=${formattedTheme}&hide_border=${hideBorder}`);
       },
     },
+
     languages: {
       link: `https://github-readme-stats.vercel.app/api/top-langs/?username=${userName.value}&theme=${formattedTheme}&show_icons=true&hide_border=${hideBorder}&layout=compact`,
       alt: 'GitHub Top Languages',

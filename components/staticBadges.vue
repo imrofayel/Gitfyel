@@ -1,7 +1,7 @@
 <template>
-  <div class="flex w-[80%] flex-col">
+  <div class="flex flex-col">
 
-    <div class="py-3 text-lg"><u>Click</u> on any badge to <u>insert</u> or copy the image link to <u>customize the colors</u> and use <u>image button</u> to add.</div>
+    <div class="py-3 text-xl"><u>Click</u> on any badge to <u>insert</u> or copy the image link to <u>customize the colors</u> and use <u>image button</u> to add.</div>
 
     <div v-for="(badgeGroup, groupKey) in badges" :key="groupKey" class="my-2">
 

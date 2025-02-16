@@ -3,7 +3,7 @@
     <div class="flex space-x-2 text-[19px]">
       <button @click="analyzeProfile" :disabled="loading" class="relative">
         <div class="shadow-sm drop-shadow-sm border-gray-200/80 border rounded-2xl px-2.5 py-1 flex space-x-2">
-          <span>Magic AI</span>
+          <span>Generative AI</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" v-if="loading">
             <g stroke="currentColor">
               <circle cx="12" cy="12" r="9.5" fill="none" stroke-linecap="round" stroke-width="2.5">

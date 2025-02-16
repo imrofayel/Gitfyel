@@ -42,7 +42,7 @@
   </div>
 
   <!-- TODO: width fix layout -->
-  <div class="w-[80%] flex justify-between">
+  <div class="w-[90%] lg:w-[80%] flex justify-between">
 
     <div class="flex space-x-2 text-[19px]">
 
@@ -65,9 +65,9 @@
 
   </div>
 
-  <Badges :editor="editor as Editor" />
+  <div class="w-[90%] lg:w-[80%]"><Badges :editor="editor as Editor" /></div>
 
-  <div class="backdrop-blur-xl mt-[10px] rounded-lg w-[80%] overflow-hidden">
+  <div class="backdrop-blur-xl mt-[10px] rounded-lg w-[90%] lg:w-[80%] overflow-hidden">
 
     <div class="flex justify-between">
 
@@ -169,6 +169,10 @@
     </bubble-menu>
 
     <EditorContent :editor="editor as any" class="overflow-auto px-4" />
+
+    <Stats :editor="editor as any" />
+
+    <StaticBadges :editor="editor as any"/>
 
   </div>
   
