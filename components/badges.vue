@@ -72,15 +72,6 @@ const computedBadges = computed(() => ({
     },
   },
 
-  npmDownloads: {
-    link: `https://img.shields.io/npm/dw/vue`,
-    alt: 'npm downloads',
-    onClick: () => {
-      const npmpackage = prompt('npm package name:');
-      addImage(`https://img.shields.io/npm/dw/${npmpackage}`);
-    },
-  },
-
   badge: {
     link: `https://img.shields.io/badge/just%20the%20message-8A2BE2`,
     alt: 'plain text badge',

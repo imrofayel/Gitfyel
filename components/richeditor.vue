@@ -1,69 +1,158 @@
 <template>
 
-  <div class="w-[80%] flex justify-between">
+  <div class="flex gap-3 tracking-tight justify-center items-center">
+    <!-- TODO: a rainbow border would be cool -->
+    <div
+      class="max-w-[380px] mb-6 w-full pl-3 p-2 flex items-center gap-x-2 justify-between rounded-3xl border border-gray-200/80 bg-white drop-shadow-sm">
+      <div class="flex items-center gap-x-2">
+        <div><svg xmlns="http://www.w3.org/2000/svg" width="28" viewBox="0 0 24 24">
+            <path fill="currentColor"
+              d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2" />
+          </svg></div>
+        <div class="flex items-center"><span class="text-xl">github.com/</span>
+          <div class="relative"><input placeholder="username" v-model="editedUsername" @keyup.enter="saveUsername"
+              type="text" :disabled="!isEditing"
+              class="font-normal text-xl w-full outline-none placeholder:text-gray-300 placeholder:font-normal bg-transparent"
+              title="Enter your username!"></div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="border border-gray-200 justify-center shrink-0 flex items-center font-semibold transition-all ease-in duration-75 whitespace-nowrap text-center select-none disabled:cursor-not-allowed gap-x-1  rounded-3xl py-1.5 cursor-pointer h-10 w-10 drop-shadow-sm bg-white shadow-sm">
 
-    <div>
-      <div class="inline-flex items-center bg-white border border-gray-200 border-opacity-50 rounded-2xl overflow-hidden roboto-mono">
-        <template v-if="isEditing">
-          <input v-model="editedUsername" @keyup.enter="saveUsername" type="text"
-            class="px-3 p-1 roboto-mono bg-white outline-none w-[150px] focus:ring-0 text-base" placeholder=""
-            ref="usernameInput">
-          <button @click="saveUsername" class="p-1 px-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" class="text-[#1e1f22]">
+          <button @click="saveUsername" class="p-1 px-2" v-if="isEditing">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 24 24" class="text-[#1e1f22]">
               <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                 d="M20 6L9 17l-5-5" />
             </svg>
           </button>
-        </template>
-        <template v-else>
-          <span class="roboto-mono px-3 py-1 text-base select-none">{{ username || 'GitHub' }}</span>
-          <button @click="startEditing" class="p-1 px-2 text-[#1e1f22]">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+
+          <button @click="startEditing" v-if="!isEditing" class="p-1 px-2 text-[#1e1f22]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil">
               <path d="M17 3a2.85 2.85 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
               <path d="m15 5 4 4" />
             </svg>
           </button>
-        </template>
+
+        </div>
       </div>
     </div>
 
-    <div class="flex space-x-2">
+  </div>
+
+  <!-- TODO: width fix layout -->
+  <div class="w-[80%] flex justify-between">
+
+    <div class="flex space-x-2 text-[19px]">
 
       <button @click="exportMarkdown" class="relative">
-            <div class="bg-[#1e1f22] text-white rounded-2xl px-2.5 py-1 flex items-center transition-transform duration-100 active:scale-95 space-x-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7l-7 7l-7-7"/></svg>
-              <span>Save</span>
-            </div>
-          </button>
+        <div class="shadow-sm drop-shadow-sm border-gray-200/80 border rounded-2xl px-2.5 py-1">
+          <span>Save</span>
+        </div>
+      </button>
 
-          <button @click="copyToClipboard" class="relative">
-            <div class="bg-[#1e1f22] text-white rounded-2xl px-2.5 py-1 flex items-center transition-transform duration-100 active:scale-95">
-              <span>Copy</span>
-            </div>
-          </button>
+      <button @click="copyToClipboard" class="relative">
+        <div class="shadow-sm drop-shadow-sm border-gray-200/80 border rounded-2xl px-2.5 py-1">
+          <!-- TODO: should show copied -->
+          <span>Copy</span>
+        </div>
+      </button>
     </div>
 
   </div>
 
-  <div class="flex w-[80%]">
-    <Badges :editor="editor as Editor" />
-  </div>
+  <Badges :editor="editor as Editor" />
 
-  <div class="bg-white backdrop-blur-xl shadow-inner border mt-[10px] rounded-lg w-[80%] overflow-hidden">
+  <div class="backdrop-blur-xl mt-[10px] rounded-lg w-[80%] overflow-hidden">
 
     <div class="flex justify-between">
 
-      <div class="p-3"><svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24">
-          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zm20 0h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-        </svg></div>
+      <div
+      class="p-1.5 px-3 flex justify-between items-center w-full select-none"
+      v-if="editor">
+      <div class="flex space-x-4">
 
-      <div class="flex">
+        <div class="flex space-x-4" v-if="!editor.can().deleteTable()">
 
-        <Menu :editor="editor as any" :bubble="true" />
+          <div @click="editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()"
+            class="shadow-sm drop-shadow-sm border-gray-200/80 border rounded-2xl bg-white flex px-3 p-1 text-[19px] justify-center items-center cursor-pointer">
+            Table
+          </div>
+
+        </div>
+
+        <!-- Row Manipulation -->
+
+        <div class="flex space-x-2" v-if="editor.can().deleteTable()">
+
+          <div
+            class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center dark:text-white/90 border-gray-100 border cursor-pointer space-x-2">
+
+            <button @click="editor.chain().focus().deleteRow().run()" :disabled="!editor.can().deleteRow()">
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" class="text-red-600">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 12h14" />
+              </svg>
+
+            </button>
+
+            <span class="inline">Row</span>
+
+            <button @click="editor.chain().focus().addRowAfter().run()" :disabled="!editor.can().addRowAfter()">
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M5 12h14m-7-7v14" />
+              </svg>
+
+            </button>
+
+          </div>
+
+          <!-- Column Manipulation -->
+
+          <div class="flex space-x-2" v-if="editor.can().deleteTable()">
+
+            <div
+              class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center border-gray-100 border dark:text-white/90 cursor-pointer space-x-2">
+
+              <button @click="editor.chain().focus().deleteColumn().run()" :disabled="!editor.can().deleteColumn()">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" class="text-red-600">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M5 12h14" />
+                </svg>
+
+              </button>
+
+              <span class="inline">Column</span>
+
+
+              <button @click="editor.chain().focus().addColumnAfter().run()" :disabled="!editor.can().addColumnAfter()">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M5 12h14m-7-7v14" />
+                </svg>
+
+              </button>
+
+            </div>
+          </div>
+
+          <div @click="editor.chain().focus().deleteTable().run()"
+            class="text-base hover:bg-[#a61111] bg-[#b91010] dark:hover:bg-[#c10c0cd0] dark:bg-[#860d0dcd] dark:border-transparent border-gray-100 border backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center text-white cursor-pointer">
+            Delete</div>
+
+        </div>
 
       </div>
+    </div>
+
+        <div>
+        <Menu :editor="editor as any" :bubble="true" /></div>
 
     </div>
 
@@ -76,99 +165,10 @@
       </div>
     </bubble-menu>
 
-    <EditorContent :editor="editor as any" class="overflow-auto px-4 relative -top-4" />
-
-<div
-        class="bg-[#fbfbfb] border-t dark:border-none dark:bg-[#2d3d33] p-1.5 px-3 flex justify-between items-center fixed bottom-0 w-full select-none"
-        v-if="editor">
-        <div class="flex space-x-4">
-
-          <div class="flex space-x-4" v-if="!editor.can().deleteTable()">
-
-            <div @click="editor.chain().focus().insertTable({ rows: 3, cols: 3, withHeaderRow: true }).run()"
-              class="bg-white dark:text-white/90 hover:dark:bg-[#1f2b24] dark:bg-[#1f2920] dark:border-transparent backdrop-blur-lg border border-gray-200 flex px-3 p-1 rounded-2xl justify-center items-center cursor-pointer">
-              Insert Table
-            </div>
-
-          </div>
-
-          <!-- Row Manipulation -->
-
-          <div class="flex space-x-2" v-if="editor.can().deleteTable()">
-
-            <div
-              class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center dark:text-white/90 border-gray-100 border cursor-pointer space-x-2">
-
-              <button @click="editor.chain().focus().deleteRow().run()" :disabled="!editor.can().deleteRow()">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" class="text-red-600">
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="M5 12h14" />
-                </svg>
-
-              </button>
-
-              <span class="inline">Row</span>
-
-              <button @click="editor.chain().focus().addRowAfter().run()" :disabled="!editor.can().addRowAfter()">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                    stroke-width="2" d="M5 12h14m-7-7v14" />
-                </svg>
-
-              </button>
-
-            </div>
-
-            <!-- Column Manipulation -->
-
-            <div class="flex space-x-2" v-if="editor.can().deleteTable()">
-
-              <div
-                class="bg-[#ffffff] text-base dark:bg-[#1f2920] dark:border-transparent backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center border-gray-100 border dark:text-white/90 cursor-pointer space-x-2">
-
-                <button @click="editor.chain().focus().deleteColumn().run()" :disabled="!editor.can().deleteColumn()">
-
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" class="text-red-600">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 12h14" />
-                  </svg>
-
-                </button>
-
-                <span class="inline">Column</span>
-
-
-                <button @click="editor.chain().focus().addColumnAfter().run()"
-                  :disabled="!editor.can().addColumnAfter()">
-
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                      stroke-width="2" d="M5 12h14m-7-7v14" />
-                  </svg>
-
-                </button>
-
-              </div>
-            </div>
-
-            <div @click="editor.chain().focus().deleteTable().run()"
-              class="text-base hover:bg-[#a61111] bg-[#b91010] dark:hover:bg-[#c10c0cd0] dark:bg-[#860d0dcd] dark:border-transparent border-gray-100 border backdrop-blur-xl flex px-3 p-1 rounded-xl justify-center items-center text-white cursor-pointer">
-              Delete</div>
-
-          </div>
-
-        </div></div>
+    <EditorContent :editor="editor as any" class="overflow-auto px-4" />
 
   </div>
-
-  <div class="flex w-[80%]">
-    <Stats :editor="editor as Editor" />
-  </div>
-
-  <StaticBadges :editor="editor as Editor"/>
-
+  
 </template>
 
 <script lang="ts" setup>
@@ -234,7 +234,7 @@ onMounted(() => {
 
     editorProps: {
       attributes: {
-        class: 'dark:text-white/90 leading-loose text-[17px] min-h-[150px] w-full h-full overflow-auto border-none bg-transparent placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
+        class: 'leading-loose text-[19px] min-h-[150px] w-full h-full overflow-auto border-none bg-transparent placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50',
       },
     },
     extensions: [

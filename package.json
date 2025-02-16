@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@nuxt/content": "^2.13.2",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@tiptap/core": "^2.8.0",
     "@tiptap/extension-bubble-menu": "^2.8.0",
     "@tiptap/extension-code-block": "^2.8.0",
@@ -46,5 +47,6 @@
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13"
-  }
+  },
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }

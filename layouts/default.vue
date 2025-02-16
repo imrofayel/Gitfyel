@@ -4,8 +4,6 @@
     
     <slot />
 
-    <AppFooter/>
-
 </template>
 
 <script lang="ts" setup>

@@ -16,7 +16,7 @@ inject();
 const mode = useColorMode() // Ref<'dark' | 'light'>
 
 onMounted(() => {
-  mode.value = 'light' // Set the theme to light mode
+  mode.value = 'dark' // Set the theme to light mode
 })
 
 </script>

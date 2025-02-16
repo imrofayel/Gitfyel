@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['~/assets/css/main.css', '~/assets/css/styles.css'],
+  css: ['~/assets/css/main.css'],
   compatibilityDate: '2024-10-06',
-  modules: ['@nuxt/content', '@nuxt/ui', '@pinia/nuxt'],
+  modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxtjs/color-mode'],
 })
